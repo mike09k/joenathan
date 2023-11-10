@@ -1,0 +1,63 @@
+<html>
+<body style="background-color:powderblue;"></body>
+<h3> reset page to guess again</h3>
+<center>
+    <head>
+    <title>
+       Guess My Number 
+    </title>
+    <script>
+        var theNumber = Math.floor(Math.random()*100)+1;
+        var currentGuess = 0;
+        var message ="Pick a number from 1 to 100"
+        var numGuesses = 0;
+      
+        
+        function guess() {
+                currentGuess = Number(document.getElementById("userGuess").value);
+               
+                if(currentGuess>theNumber){
+                    message = "You guessed too high! Guess lower"
+                }
+            
+                
+                    if(currentGuess<theNumber){
+                message = "You guessed too low! Guess higher!"
+                
+            }
+            
+                if(currentGuess==theNumber){
+                    
+                    message = "You guessed my number"
+                    document.getElementById("guessButton").disabled = true;
+                    document.getElementById("lastGuess").disabled = true;
+                }
+        
+                
+              numGuesses++;
+              document.getElementById("numGuess").innerHTML = "Number of Guesses:" + numGuesses;
+              document.getElementById("lastGuess").innerHTML = "Last Guess: " + currentGuess;
+                
+                
+                
+                document.getElementById("messageDisplay").innerHTML = message;
+            }
+            
+    </script>
+      
+    </head>
+     <body>
+        <h1>Guess My NUMBER</h1>
+        <p id="messageDisplay">Pick a number 1 to 100.</p>
+        <br><input id="userGuess">
+        <button id="guessButton" onclick="guess();">
+        Submit
+        </button>
+        <p id="numGuess">Number of Guesses: 0</p>
+        <p id="lastGuess">Last Guess:</p>
+
+
+    </body>
+
+</center>
+    </html>
